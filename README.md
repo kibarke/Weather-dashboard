@@ -1,5 +1,10 @@
 # Weather-dashboard
-AS A traveler I WANT to see the weather outlook for multiple cities SO THAT I can plan a trip accordingly
+
+* AS A traveler 
+* I WANT to see the weather outlook for multiple cities 
+* SO THAT I can plan a trip accordingly
+=======
+
 
 ## User Story
 * AS A traveler
@@ -21,5 +26,8 @@ AS A traveler I WANT to see the weather outlook for multiple cities SO THAT I ca
 * Hit the green code button
 * Copy URL or Download ZIP
 
+
 ### Mock-Up
-![Weather-Mock](./assets/weather-mock.png)
+* ![Weather-Mock](./assets/weather-mock.png)
+=======
+
