@@ -29,5 +29,9 @@
 
 ### Mock-Up
 * ![Weather-Mock](./assets/weather-mock.png)
-=======
+
+### Source
+* Blood, sweat, and tears
+* Lots of tears
+* https://www.w3schools.com/
 
