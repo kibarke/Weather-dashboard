@@ -1,7 +1,16 @@
 # Weather-dashboard
+<<<<<<< HEAD
 * AS A traveler 
 * I WANT to see the weather outlook for multiple cities 
 * SO THAT I can plan a trip accordingly
+=======
+
+* AS A traveler 
+* I WANT to see the weather outlook for multiple cities 
+* SO THAT I can plan a trip accordingly
+=======
+
+>>>>>>> 4d11bb5637536b620f7eec400e48b54bcfd32a80
 
 ## User Story
 * AS A traveler
@@ -23,10 +32,16 @@
 * Hit the green code button
 * Copy URL or Download ZIP
 
+
 ### Mock-Up
 * ![Weather-Mock](./assets/weather-mock.png)
 
 ### Source
 * Blood, sweat, and tears
 * Lots of tears
+<<<<<<< HEAD
 * https://www.w3schools.com/
+=======
+* https://www.w3schools.com/
+
+>>>>>>> 4d11bb5637536b620f7eec400e48b54bcfd32a80
