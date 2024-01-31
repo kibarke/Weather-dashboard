@@ -23,7 +23,7 @@ Third-party APIs allow developers to access their data and functionality by maki
 * Copy URL or Download ZIP
 
 ### Mock-Up
-* ![Weather-Mock](./assets/weather-mock.png)
+![Weather-Mock](./assets/weather-mock.png)
 
 ### Source
 * Blood, sweat, and tears
