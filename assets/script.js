@@ -18,15 +18,43 @@ search addEventListener('click', () => {
         const humidity = document.querySelector('.weather-details .humidity span');
         const wind = document.querySelector('.weather-details .wind span');
 
+        // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
+
         switch (json.weather[0].main) {
             case 'Clear':
-                image.src = '';
+                image.src = 'images/sun.webp';
+                break;
 
-            break;
+            case 'Rain':
+                image.src = 'images/rain.png';
+                break;
+
+            case 'Snow':
+                image.src = 'images/snowflake.webp';
+                break;
+
+            case 'Clouds':
+                image.src = 'images/cloud.jpg';
+                break;
+
+            case 'Wind':
+                image.src = 'images/wind.png';
+                break;
+
+            case 'Mist':
+                image.src = 'images/mist.webp';
+                break;
+
+            case 'Haze':
+                image.src = 'images/mist.webp';
+                break;
 
             default:
-                break;
+                image.src = 'image/cloud.jpg';
         }
+
+        
+
     });
 
 });
