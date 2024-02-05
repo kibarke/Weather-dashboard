@@ -49,7 +49,7 @@ search addEventListener('click', () => {
 
         switch (json.weather[0].main) {
             case 'Clear':
-                image.src = 'images/sun.webp';
+                image.src = 'images/cartoonsun.png';
                 break;
 
             case 'Rain':
@@ -57,11 +57,11 @@ search addEventListener('click', () => {
                 break;
 
             case 'Snow':
-                image.src = 'images/snowflake.webp';
+                image.src = 'images/cartoonsnow.png';
                 break;
 
             case 'Clouds':
-                image.src = 'images/cloud.jpg';
+                image.src = 'images/cartooncloud.png';
                 break;
 
             case 'Wind':
@@ -69,15 +69,15 @@ search addEventListener('click', () => {
                 break;
 
             case 'Mist':
-                image.src = 'images/mist.webp';
+                image.src = 'images/carmist.png';
                 break;
 
             case 'Haze':
-                image.src = 'images/mist.webp';
+                image.src = 'images/mist.png';
                 break;
 
             default:
-                image.src = 'image/cloud.jpg';
+                image.src = 'image/cartoonsun.png';
         }
 
         tempature.innerHTML = `${parseInt(json.main.temp)}<span>°F</span>`;
