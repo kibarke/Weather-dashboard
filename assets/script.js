@@ -39,11 +39,16 @@ search addEventListener('click', () => {
         else {
             cityHide.textContent = city;
 
-            container.computedStyleMap.height = '555px'
+            container.computedStyleMap.height = '555px';
+            container.classList.add('active');
             weatherBox.classList.add('active');
             weatherDetails.classList.add('active');
             error404.classList.remove('active');
        
+            setTimeout(() => {
+                container.classList.remove('active');
+            }, 2500);
+
 
         // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
 
@@ -85,6 +90,16 @@ search addEventListener('click', () => {
         humidity.innerHTML = `${json.main.humidity}%`;
         tempature.innerHTML = `${parseInt(json.main.speed)}Mi/h`;
         
+        const infoWeather = document.querySelector('.info-weather');
+        const infoHumidity = document.querySelector('.info-humidity');
+        const infoWind = document.querySelector('.info-wind');
+
+        const elCLoneInfoWeather = infoWeather.cloneNode(true);
+        const elCLoneInfoHumidity = infoHumidity.cloneNode(true);
+        const elCLoneInfoWind = infoWind.cloneNode(true);
+
+        elCLoneInfoWeather.id = 'clone-info-weather';
+        elCLoneInfoWeather.id = 'active-clone';
         }
     });
 
