@@ -100,7 +100,24 @@ search addEventListener('click', () => {
 
         elCLoneInfoWeather.id = 'clone-info-weather';
         elCLoneInfoWeather.id = 'active-clone';
+
+        elCLoneInfoHumidity.id = 'clone-info-humidity';
+        elCLoneInfoWeather.id = 'active-clone';
+
+        elCLoneInfoWind.id = 'clone-info-wind';
+        elCLoneInfoWeather.id = 'active-clone';
+
+        // Added a timer
+
+        setTimeout(() =>{
+            infoWeather.insertAdjacentElement("afterend", elCLoneInfoWeather);
+            infoHumidity.insertAdjacentElement("afterend", elCLoneInfoHumidity);
+            infoWind.insertAdjacentElement("afterend", elCLoneInfoWind);
+        }, 2200);
+
+        const totalCloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
         }
+
     });
 
 });
