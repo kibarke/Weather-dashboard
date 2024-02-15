@@ -7,11 +7,11 @@ const cityHide = document.querySelector('.city-hide');
 
 
 search.addEventListener('click', () => {
-    const APIKey = 'c180e5ec2d17abbcfebe00a1ac5f1f74';
+    const APIKey = 'ea48c36be72c20dd3617d53560667a07';
     const city = document.querySelector('.search-box input').value;
 
     if (city == '')
-    return;
+        return;
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metricappid=${APIKey}`).then(response => response.json()).then(json =>
     {
@@ -54,7 +54,7 @@ search.addEventListener('click', () => {
 
         switch (json.weather[0].main) {
             case 'Clear':
-                image.src = 'images/cartoonsun.png';
+                image.src = 'images/sun.png';
                 break;
 
             case 'Rain':
@@ -66,7 +66,7 @@ search.addEventListener('click', () => {
                 break;
 
             case 'Clouds':
-                image.src = 'images/cartooncloud.png';
+                image.src = 'images/cloud.png';
                 break;
 
             case 'Wind':
@@ -74,7 +74,7 @@ search.addEventListener('click', () => {
                 break;
 
             case 'Mist':
-                image.src = 'images/carmist.png';
+                image.src = 'images/mist.png';
                 break;
 
             case 'Haze':
@@ -88,7 +88,7 @@ search.addEventListener('click', () => {
         tempature.innerHTML = `${parseInt(json.main.temp)}<span>°F</span>`;
         description.innerHTML = `${json.weather[0].decription}`;
         humidity.innerHTML = `${json.main.humidity}%`;
-        tempature.innerHTML = `${parseInt(json.main.speed)}Mi/h`;
+        tempature.innerHTML = `${parseInt(json.wind.speed)}Mi/h`;
         
         const infoWeather = document.querySelector('.info-weather');
         const infoHumidity = document.querySelector('.info-humidity');
