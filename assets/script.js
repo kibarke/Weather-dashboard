@@ -50,7 +50,7 @@ search.addEventListener('click', () => {
             }, 2500);
 
 
-        console.log(json);
+        console.log(json.weather);
         // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
 
         switch (json.weather[0].main) {
