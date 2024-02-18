@@ -50,6 +50,7 @@ search.addEventListener('click', () => {
             }, 2500);
 
 
+        console.log(json);
         // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
 
         switch (json.weather[0].main) {
@@ -99,13 +100,13 @@ search.addEventListener('click', () => {
         const elCLoneInfoWind = infoWind.cloneNode(true);
 
         elCLoneInfoWeather.id = 'clone-info-weather';
-        elCLoneInfoWeather.id = 'active-clone';
+        elCLoneInfoWeather.classList.add( 'active-clone');
 
         elCLoneInfoHumidity.id = 'clone-info-humidity';
-        elCLoneInfoWeather.id = 'active-clone';
+        elCLoneInfoHumidity.classList.add( 'active-clone');
 
         elCLoneInfoWind.id = 'clone-info-wind';
-        elCLoneInfoWeather.id = 'active-clone';
+        elCLoneInfoWind.classList.add( 'active-clone');
 
         // Added a timer
 
@@ -115,9 +116,27 @@ search.addEventListener('click', () => {
             infoWind.insertAdjacentElement("afterend", elCLoneInfoWind);
         }, 2200);
 
-        const totalCloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
-        }
+        const cloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
+        const totalCloneInfoWeather = cloneInfoWeather.length;
+        const cloneInfoWeatherFirst = cloneInfoWeather[0];
 
+        const cloneInfoHumidity = document.querySelectorAll('.info-humidity.active-clone');
+        const cloneInfoHumidityFirst = cloneInfoHumidity[0];
+        
+        const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
+        const cloneInfoWindFirst = cloneInfoWind[0];
+
+        if(totalCloneInfoWeather > 0) {
+            cloneInfoWeatherFirst.classList.remove('active-clone');
+            cloneInfoHumidityFirst.classList.remove('active-clone');
+            cloneInfoWeatherFirst.classList.remove('active-clone');
+            
+            setTimeout (() => {
+                cloneInfoWeatherFirst.remove();
+                cloneInfoHumidityFirst.remove();
+                cloneInfoWindFirst.remove();
+            }, 2200);
+            }
+        }  
     });
-
 });
