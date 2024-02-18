@@ -13,7 +13,7 @@ search.addEventListener('click', () => {
     if (city == '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metricappid=${APIKey}`).then(response => response.json()).then(json =>
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${APIKey}`).then(response => response.json()).then(json =>
     {
 
         // if the city is non-existent
@@ -49,8 +49,14 @@ search.addEventListener('click', () => {
                 container.classList.remove('active');
             }, 2500);
 
+        if (!json.weather || !json.weather[0] || !json.weather[0].main) {
+                console.error('Weather information not available in the response');
+                return;
+              }
+          
 
-        console.log(json.weather);
+
+        console.log(json);
         // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
 
         switch (json.weather[0].main) {
@@ -75,21 +81,19 @@ search.addEventListener('click', () => {
                 break;
 
             case 'Mist':
-                image.src = 'images/mist.png';
-                break;
-
             case 'Haze':
                 image.src = 'images/mist.png';
                 break;
 
             default:
-                image.src = 'image/cartoonsun.png';
+                image.src = 'images/cartoonsun.png';
         }
 
-        tempature.innerHTML = `${parseInt(json.main.temp)}<span>°F</span>`;
-        description.innerHTML = `${json.weather[0].decription}`;
+      
+        tempature.innerHTML = `${(json.main.temp)}<span>°C</span>`;
+        description.innerHTML = `${json.weather[0].description}`;
         humidity.innerHTML = `${json.main.humidity}%`;
-        tempature.innerHTML = `${parseInt(json.wind.speed)}Mi/h`;
+        wind.innerHTML = `${(json.wind.speed)}Mi/h`;
         
         const infoWeather = document.querySelector('.info-weather');
         const infoHumidity = document.querySelector('.info-humidity');
