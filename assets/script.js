@@ -13,12 +13,12 @@ search.addEventListener('click', () => {
     if (city == '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${APIKey}`).then(response => response.json()).then(json =>
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`).then(response => response.json()).then(json =>
     {
-
+        console.log('test')
         // if the city is non-existent
-
-        if (json.cod == '404') {
+        
+        if (json.cod == '404' || !json) {
             cityHide.textContent = city;
             container.computedStyleMap.height = '400px'
             weatherBox.classList.remove('active');
@@ -28,10 +28,10 @@ search.addEventListener('click', () => {
         }
 
         const image = document.querySelector('.weather-box img');
-        const tempature = document.querySelector('.weather-box .tempature');
-        const description = document.querySelector('.weather-box .description');
-        const humidity = document.querySelector('.weather-details .humidity span');
-        const wind = document.querySelector('.weather-details .wind span');
+        const temperature = document.querySelector('.temperature');
+        const description = document.querySelector('.description');
+        const humidity = document.querySelector('.humidity span');
+        const wind = document.querySelector('.wind');
 
         if (cityHide.textContent == city) {
             return;
@@ -45,18 +45,17 @@ search.addEventListener('click', () => {
             weatherDetails.classList.add('active');
             error404.classList.remove('active');
        
-            setTimeout(() => {
-                container.classList.remove('active');
-            }, 2500);
-
-        if (!json.weather || !json.weather[0] || !json.weather[0].main) {
-                console.error('Weather information not available in the response');
-                return;
-              }
+            // setTimeout(() => {
+            //     container.classList.remove('active');
+            // }, 2500);
+            console.log(json)
+        // if (!json||!json[0] || !json[0]) {
+        //         console.error('Weather information not available in the response');
+        //         return;
+        //       }
           
 
 
-        console.log(json);
         // Making it so that when the user looks up the city, they have an image that coordinates with the weather of the city
 
         switch (json.weather[0].main) {
@@ -90,7 +89,7 @@ search.addEventListener('click', () => {
         }
 
       
-        tempature.innerHTML = `${(json.main.temp)}<span>°C</span>`;
+        temperature.innerHTML = `${(json.main.temp)}<span>°F</span>`;
         description.innerHTML = `${json.weather[0].description}`;
         humidity.innerHTML = `${json.main.humidity}%`;
         wind.innerHTML = `${(json.wind.speed)}Mi/h`;
@@ -99,26 +98,26 @@ search.addEventListener('click', () => {
         const infoHumidity = document.querySelector('.info-humidity');
         const infoWind = document.querySelector('.info-wind');
 
-        const elCLoneInfoWeather = infoWeather.cloneNode(true);
-        const elCLoneInfoHumidity = infoHumidity.cloneNode(true);
-        const elCLoneInfoWind = infoWind.cloneNode(true);
+        // const elCloneInfoWeather = infoWeather.cloneNode(true);
+        // const elCloneInfoHumidity = infoHumidity.cloneNode(true);
+        // const elCloneInfoWind = infoWind.cloneNode(true);
 
-        elCLoneInfoWeather.id = 'clone-info-weather';
-        elCLoneInfoWeather.classList.add( 'active-clone');
+        // elCloneInfoWeather.id = 'clone-info-weather';
+        // elCloneInfoWeather.classList.add( 'active-clone');
 
-        elCLoneInfoHumidity.id = 'clone-info-humidity';
-        elCLoneInfoHumidity.classList.add( 'active-clone');
+        // elCloneInfoHumidity.id = 'clone-info-humidity';
+        // elCloneInfoHumidity.classList.add( 'active-clone');
 
-        elCLoneInfoWind.id = 'clone-info-wind';
-        elCLoneInfoWind.classList.add( 'active-clone');
+        // elCloneInfoWind.id = 'clone-info-wind';
+        // elCloneInfoWind.classList.add( 'active-clone');
 
         // Added a timer
 
-        setTimeout(() =>{
-            infoWeather.insertAdjacentElement("afterend", elCLoneInfoWeather);
-            infoHumidity.insertAdjacentElement("afterend", elCLoneInfoHumidity);
-            infoWind.insertAdjacentElement("afterend", elCLoneInfoWind);
-        }, 2200);
+        // setTimeout(() =>{
+        //     infoWeather.insertAdjacentElement("afterend", elCLoneInfoWeather);
+        //     infoHumidity.insertAdjacentElement("afterend", elCLoneInfoHumidity);
+        //     infoWind.insertAdjacentElement("afterend", elCLoneInfoWind);
+        // }, 2200);
 
         const cloneInfoWeather = document.querySelectorAll('.info-weather.active-clone');
         const totalCloneInfoWeather = cloneInfoWeather.length;
@@ -130,17 +129,17 @@ search.addEventListener('click', () => {
         const cloneInfoWind = document.querySelectorAll('.info-wind.active-clone');
         const cloneInfoWindFirst = cloneInfoWind[0];
 
-        if(totalCloneInfoWeather > 0) {
-            cloneInfoWeatherFirst.classList.remove('active-clone');
-            cloneInfoHumidityFirst.classList.remove('active-clone');
-            cloneInfoWeatherFirst.classList.remove('active-clone');
+        // if(totalCloneInfoWeather > 0) {
+        //     cloneInfoWeatherFirst.classList.remove('active-clone');
+        //     cloneInfoHumidityFirst.classList.remove('active-clone');
+        //     cloneInfoWeatherFirst.classList.remove('active-clone');
             
-            setTimeout (() => {
-                cloneInfoWeatherFirst.remove();
-                cloneInfoHumidityFirst.remove();
-                cloneInfoWindFirst.remove();
-            }, 2200);
-            }
-        }  
+            // setTimeout (() => {
+            //     cloneInfoWeatherFirst.remove();
+            //     cloneInfoHumidityFirst.remove();
+            //     cloneInfoWindFirst.remove();
+            // }, 2200);
+            // }
+         }  
     });
 });

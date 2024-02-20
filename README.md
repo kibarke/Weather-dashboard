@@ -30,7 +30,7 @@ Third-party APIs allow developers to access their data and functionality by maki
 * Lots of tears
 * https://www.w3schools.com/
 * https://youtu.be/2jjR-iGxVYM?si=79Qg6xfLDAlMOXq7
-* My amazing tutor
+* My amazing tutor - Charlie P.M.
 
 
 ### Thought Process
