@@ -87,6 +87,8 @@ body {
 .weather-box, 
 .weather-details,
 .not-found {
+    color: #fff;
+    padding: 6px;
     overflow: hidden;
     visibility: hidden;
 }
@@ -146,9 +148,9 @@ body {
 
 .weather-details {
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
-    width: 100;
+    width: 100%;
     padding: 0 20px;
     display: flex;
 }
